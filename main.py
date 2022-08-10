@@ -106,7 +106,7 @@ def parse_args(arguments):
     if arguments.Zone:
         if arguments.Zone.isnumeric():
             zone_int = int(arguments.Zone)
-            if 0 < zone_int < 6:
+            if 1 <= zone_int <= 6:
                 amp_ch += zone_int
             else:
                 print('Zone %s is invalid' % arguments.Zone)
@@ -129,23 +129,23 @@ def parse_args(arguments):
                 volume_calc = int((vol_int * MAX_VOLUME) / 100)
                 volume_cmd = f"{volume_calc:02d}"
             else:
-                print('Invalid volume %s' % arguments.Volume)
+                print('Volume %s is invalid' % arguments.Volume)
                 exit(1)
         else:
-            print('Invalid volume %s' % arguments.Volume)
+            print('Volume %s is invalid' % arguments.Volume)
             exit(1)
 
     channel_cmd = None
     if arguments.Channel:
         if arguments.Channel.isnumeric():
             ch_int = int(arguments.Channel)
-            if 0 < ch_int < 6:
+            if 1 <= ch_int <= 6:
                 channel_cmd = f"{ch_int:02d}"
             else:
-                print('Zone %s is invalid' % arguments.Zone)
+                print('Channel %s is invalid' % arguments.Zone)
                 exit(1)
         else:
-            print('Zone %s is invalid' % arguments.Zone)
+            print('Channel %s is invalid' % arguments.Zone)
             exit(1)
 
     command_pre = '<'
